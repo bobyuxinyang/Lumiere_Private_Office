@@ -538,186 +538,185 @@ export default function Home() {
                                         </div>
                                     </div>
                                 </div>
-                                </div>
                             )}
 
-                        {/* Tab 3: Operation Logs */}
-                        {activeTab === 'logs' && (
-                            <div className="p-8 animate-in fade-in slide-in-from-right-4 duration-300">
-                                <div className="relative border-l border-slate-200 ml-3 space-y-8">
-                                    {getMockLogs(t).map((log, idx) => (
-                                        <div key={idx} className="relative pl-6">
-                                            <div className={`absolute -left-1.5 top-1.5 w-3 h-3 rounded-full border-2 border-white ${log.status === 'working' ? 'bg-amber-500 animate-pulse' : log.status === 'info' ? 'bg-blue-400' : 'bg-emerald-400'}`}></div>
-                                            <div className="flex flex-col gap-1">
-                                                <span className="text-[10px] font-mono text-slate-400 uppercase tracking-wider">{log.time}</span>
-                                                <span className={`text-sm font-medium ${log.status === 'working' ? 'text-amber-600' : 'text-slate-700'}`}>{log.event}</span>
+                            {/* Tab 3: Operation Logs */}
+                            {activeTab === 'logs' && (
+                                <div className="p-8 animate-in fade-in slide-in-from-right-4 duration-300">
+                                    <div className="relative border-l border-slate-200 ml-3 space-y-8">
+                                        {getMockLogs(t).map((log, idx) => (
+                                            <div key={idx} className="relative pl-6">
+                                                <div className={`absolute -left-1.5 top-1.5 w-3 h-3 rounded-full border-2 border-white ${log.status === 'working' ? 'bg-amber-500 animate-pulse' : log.status === 'info' ? 'bg-blue-400' : 'bg-emerald-400'}`}></div>
+                                                <div className="flex flex-col gap-1">
+                                                    <span className="text-[10px] font-mono text-slate-400 uppercase tracking-wider">{log.time}</span>
+                                                    <span className={`text-sm font-medium ${log.status === 'working' ? 'text-amber-600' : 'text-slate-700'}`}>{log.event}</span>
+                                                </div>
                                             </div>
-                                        </div>
-                                    ))}
-                                </div>
+                                        ))}
+                                    </div>
 
-                                <div className="mt-12 p-4 bg-slate-50 border border-slate-100 rounded text-center">
-                                    <div className="flex items-center justify-center gap-2 text-[10px] font-bold text-slate-400 uppercase tracking-widest">
-                                        <div className="w-2 h-2 bg-emerald-500 rounded-full animate-pulse"></div>
-                                        24/7 Active Monitoring
+                                    <div className="mt-12 p-4 bg-slate-50 border border-slate-100 rounded text-center">
+                                        <div className="flex items-center justify-center gap-2 text-[10px] font-bold text-slate-400 uppercase tracking-widest">
+                                            <div className="w-2 h-2 bg-emerald-500 rounded-full animate-pulse"></div>
+                                            24/7 Active Monitoring
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                        )}
-                    </div>
-
-                    {/* Modal Footer */}
-                    <div className="p-4 border-t border-slate-100 bg-white flex justify-between items-center text-[9px] text-slate-300 font-mono uppercase tracking-widest">
-                        <span>{t('modal.memoryEngineVersion')}</span>
-                        <span className="text-amber-600 flex items-center gap-1"><Brain className="w-3 h-3" /> {t('modal.learningActive')}</span>
-                    </div>
-                </div>
-            </div>
-    )
-}
-
-{/* ----------------- 左栏：私人管家团队 ----------------- */ }
-<div className="w-72 bg-white border-r border-slate-100 flex flex-col z-20 shrink-0">
-    <div className="p-8 border-b border-slate-100 bg-white flex items-center justify-between">
-        <div>
-            <h2 className="font-serif text-xl text-slate-900 flex items-center gap-3 tracking-wide">
-                <Crown className="w-5 h-5 text-amber-600" />
-                {t('app.concierge')}
-            </h2>
-            <p className="text-[10px] text-slate-400 mt-3 uppercase tracking-[0.2em] font-medium">{t('app.subtitle')}</p>
-        </div>
-        <button
-            onClick={toggleLocale}
-            className="flex items-center gap-1.5 text-[10px] font-bold text-slate-400 uppercase tracking-wider hover:text-slate-700 transition-colors border border-slate-100 px-2.5 py-1.5 hover:border-slate-300"
-            title="Switch Language"
-        >
-            <Globe className="w-3 h-3" />
-            {t('langSwitch.label')}
-        </button>
-    </div>
-
-    <div className="flex-1 overflow-y-auto p-0">
-        {agents.map(agent => (
-            <button
-                key={agent.id}
-                onClick={() => { setSelectedAgentId(agent.id); setActiveTab('profile'); }}
-                className={`w-full text-left px-8 py-6 border-b border-slate-50 transition-all duration-500 group relative ${agentStates[agent.id].status === 'working' ? 'bg-slate-50' : 'hover:bg-slate-50/50'}`}
-            >
-                <div className="flex items-center justify-between mb-3">
-                    <div className="flex items-center gap-4">
-                        <div className={`text-slate-300 ${agentStates[agent.id].status !== 'idle' ? agent.color : ''}`}>
-                            <agent.icon className="w-5 h-5" strokeWidth={1.5} />
+                            )}
                         </div>
-                        <span className={`font-medium text-sm tracking-wide font-serif ${agentStates[agent.id].status !== 'idle' ? 'text-slate-900' : 'text-slate-400'}`}>{agent.name}</span>
+
+                        {/* Modal Footer */}
+                        <div className="p-4 border-t border-slate-100 bg-white flex justify-between items-center text-[9px] text-slate-300 font-mono uppercase tracking-widest">
+                            <span>{t('modal.memoryEngineVersion')}</span>
+                            <span className="text-amber-600 flex items-center gap-1"><Brain className="w-3 h-3" /> {t('modal.learningActive')}</span>
+                        </div>
                     </div>
-                    {pendingMemories.some(m => m.agent === agent.id) && (
-                        <span className="w-2 h-2 bg-red-500 rounded-full animate-pulse shadow-red-500/50 shadow-lg"></span>
-                    )}
                 </div>
-                <div className="font-mono text-[10px] truncate text-slate-300 pl-9">{agentStates[agent.id].log}</div>
-            </button>
-        ))}
-    </div>
+            )
+            }
 
-    {/* 底部按钮区 */}
-    <div className="p-4 border-t border-slate-100 space-y-2">
-        {hasTasks && (
-            <button
-                onClick={() => setShowStatusPanel(true)}
-                className="flex items-center justify-center gap-2 w-full py-3 text-[10px] font-bold text-amber-700 uppercase tracking-[0.15em] hover:bg-amber-50 transition-all border border-amber-200 bg-amber-50/50"
-            >
-                <BarChart3 className="w-3.5 h-3.5" />
-                {t('home.viewStatus')}
-            </button>
-        )}
-        <Link
-            to="/help"
-            className="flex items-center justify-center gap-2 w-full py-3 text-[10px] font-bold text-slate-400 uppercase tracking-[0.15em] hover:text-slate-700 hover:bg-slate-50 transition-all border border-slate-100"
-        >
-            <HelpCircle className="w-3.5 h-3.5" />
-            {t('home.protocolManual')}
-        </Link>
-    </div>
-</div>
-
-{/* ----------------- 中栏：定制行程清单 ----------------- */ }
-<div className="flex-1 bg-[#FDFBF7] flex flex-col min-w-0 relative">
-    <div className="p-8 border-b border-slate-200/60 z-10 flex flex-wrap gap-12 items-end">
-        <div className="group">
-            <label className="block text-[10px] font-bold text-slate-400 uppercase tracking-[0.15em] mb-3">{t('home.clientProfile')}</label>
-            <div className="flex items-center gap-2">
-                <div className="w-6 h-6 bg-slate-900 text-white flex items-center justify-center font-serif font-bold text-xs rounded-none">L</div>
-                <span className="font-serif text-lg text-slate-900">{t('home.clientName')}</span>
-                <span className="text-[9px] border border-amber-200 text-amber-700 px-2 py-0.5 uppercase tracking-wider bg-amber-50">{t('home.memoryAccessOn')}</span>
-            </div>
-        </div>
-        <div className="ml-auto text-right">
-            <span className="block text-[10px] font-bold text-slate-400 uppercase tracking-[0.15em] mb-1">{t('home.lastSync')}</span>
-            <div className="text-xs font-bold text-slate-900 font-mono">{t('home.today')}</div>
-        </div>
-    </div>
-
-    <div className="flex-1 overflow-y-auto p-12 space-y-16 pb-20 scroll-smooth" ref={checklistEndRef}>
-        {Object.keys(formData.sections).length === 0 && !isProcessing && (
-            <div className="flex flex-col items-center justify-center h-64 opacity-50">
-                <Brain className="w-12 h-12 text-slate-300 mb-4 stroke-1" />
-                <p className="text-xs font-bold tracking-[0.2em] uppercase text-slate-400">{t('home.waitingToInitiate')}</p>
-            </div>
-        )}
-        {agents.map(agent => formData.sections[agent.id] && (
-            <div key={agent.id} className="animate-in fade-in slide-in-from-bottom-8 duration-700">
-                <div className="flex items-center gap-4 mb-6 border-l-2 border-slate-900 pl-4">
-                    <span className="font-serif text-lg text-slate-900 tracking-wide">{agent.name}</span>
-                    <span className="h-px flex-1 bg-slate-200"></span>
+            {/* ----------------- 左栏：私人管家团队 ----------------- */}
+            <div className="w-72 bg-white border-r border-slate-100 flex flex-col z-20 shrink-0">
+                <div className="p-8 border-b border-slate-100 bg-white flex items-center justify-between">
+                    <div>
+                        <h2 className="font-serif text-xl text-slate-900 flex items-center gap-3 tracking-wide">
+                            <Crown className="w-5 h-5 text-amber-600" />
+                            {t('app.concierge')}
+                        </h2>
+                        <p className="text-[10px] text-slate-400 mt-3 uppercase tracking-[0.2em] font-medium">{t('app.subtitle')}</p>
+                    </div>
+                    <button
+                        onClick={toggleLocale}
+                        className="flex items-center gap-1.5 text-[10px] font-bold text-slate-400 uppercase tracking-wider hover:text-slate-700 transition-colors border border-slate-100 px-2.5 py-1.5 hover:border-slate-300"
+                        title="Switch Language"
+                    >
+                        <Globe className="w-3 h-3" />
+                        {t('langSwitch.label')}
+                    </button>
                 </div>
-                <div className="space-y-3 pl-4">
-                    {formData.sections[agent.id].map((item, idx) => (
-                        <div key={idx} className="flex items-start gap-5 p-5 bg-white shadow-sm border border-slate-100 hover:shadow-md transition-all">
-                            <div className="relative flex items-center mt-0.5">
-                                <input type="checkbox" defaultChecked={item.checked} className="peer appearance-none w-4 h-4 border border-slate-300 checked:bg-slate-900 checked:border-slate-900 cursor-pointer rounded-none" />
-                                <div className="absolute inset-0 pointer-events-none text-white hidden peer-checked:flex items-center justify-center"><Check className="w-3 h-3" /></div>
+
+                <div className="flex-1 overflow-y-auto p-0">
+                    {agents.map(agent => (
+                        <button
+                            key={agent.id}
+                            onClick={() => { setSelectedAgentId(agent.id); setActiveTab('profile'); }}
+                            className={`w-full text-left px-8 py-6 border-b border-slate-50 transition-all duration-500 group relative ${agentStates[agent.id].status === 'working' ? 'bg-slate-50' : 'hover:bg-slate-50/50'}`}
+                        >
+                            <div className="flex items-center justify-between mb-3">
+                                <div className="flex items-center gap-4">
+                                    <div className={`text-slate-300 ${agentStates[agent.id].status !== 'idle' ? agent.color : ''}`}>
+                                        <agent.icon className="w-5 h-5" strokeWidth={1.5} />
+                                    </div>
+                                    <span className={`font-medium text-sm tracking-wide font-serif ${agentStates[agent.id].status !== 'idle' ? 'text-slate-900' : 'text-slate-400'}`}>{agent.name}</span>
+                                </div>
+                                {pendingMemories.some(m => m.agent === agent.id) && (
+                                    <span className="w-2 h-2 bg-red-500 rounded-full animate-pulse shadow-red-500/50 shadow-lg"></span>
+                                )}
                             </div>
-                            <span className={`text-sm font-medium ${item.checked ? 'text-slate-800' : 'text-slate-400 line-through'}`}>{item.label}</span>
-                            {item.type === 'alert' && <span className="ml-auto text-[9px] font-bold text-red-500 uppercase border border-red-200 px-2 py-0.5">{t('demo.updated')}</span>}
+                            <div className="font-mono text-[10px] truncate text-slate-300 pl-9">{agentStates[agent.id].log}</div>
+                        </button>
+                    ))}
+                </div>
+
+                {/* 底部按钮区 */}
+                <div className="p-4 border-t border-slate-100 space-y-2">
+                    {hasTasks && (
+                        <button
+                            onClick={() => setShowStatusPanel(true)}
+                            className="flex items-center justify-center gap-2 w-full py-3 text-[10px] font-bold text-amber-700 uppercase tracking-[0.15em] hover:bg-amber-50 transition-all border border-amber-200 bg-amber-50/50"
+                        >
+                            <BarChart3 className="w-3.5 h-3.5" />
+                            {t('home.viewStatus')}
+                        </button>
+                    )}
+                    <Link
+                        to="/help"
+                        className="flex items-center justify-center gap-2 w-full py-3 text-[10px] font-bold text-slate-400 uppercase tracking-[0.15em] hover:text-slate-700 hover:bg-slate-50 transition-all border border-slate-100"
+                    >
+                        <HelpCircle className="w-3.5 h-3.5" />
+                        {t('home.protocolManual')}
+                    </Link>
+                </div>
+            </div>
+
+            {/* ----------------- 中栏：定制行程清单 ----------------- */}
+            <div className="flex-1 bg-[#FDFBF7] flex flex-col min-w-0 relative">
+                <div className="p-8 border-b border-slate-200/60 z-10 flex flex-wrap gap-12 items-end">
+                    <div className="group">
+                        <label className="block text-[10px] font-bold text-slate-400 uppercase tracking-[0.15em] mb-3">{t('home.clientProfile')}</label>
+                        <div className="flex items-center gap-2">
+                            <div className="w-6 h-6 bg-slate-900 text-white flex items-center justify-center font-serif font-bold text-xs rounded-none">L</div>
+                            <span className="font-serif text-lg text-slate-900">{t('home.clientName')}</span>
+                            <span className="text-[9px] border border-amber-200 text-amber-700 px-2 py-0.5 uppercase tracking-wider bg-amber-50">{t('home.memoryAccessOn')}</span>
+                        </div>
+                    </div>
+                    <div className="ml-auto text-right">
+                        <span className="block text-[10px] font-bold text-slate-400 uppercase tracking-[0.15em] mb-1">{t('home.lastSync')}</span>
+                        <div className="text-xs font-bold text-slate-900 font-mono">{t('home.today')}</div>
+                    </div>
+                </div>
+
+                <div className="flex-1 overflow-y-auto p-12 space-y-16 pb-20 scroll-smooth" ref={checklistEndRef}>
+                    {Object.keys(formData.sections).length === 0 && !isProcessing && (
+                        <div className="flex flex-col items-center justify-center h-64 opacity-50">
+                            <Brain className="w-12 h-12 text-slate-300 mb-4 stroke-1" />
+                            <p className="text-xs font-bold tracking-[0.2em] uppercase text-slate-400">{t('home.waitingToInitiate')}</p>
+                        </div>
+                    )}
+                    {agents.map(agent => formData.sections[agent.id] && (
+                        <div key={agent.id} className="animate-in fade-in slide-in-from-bottom-8 duration-700">
+                            <div className="flex items-center gap-4 mb-6 border-l-2 border-slate-900 pl-4">
+                                <span className="font-serif text-lg text-slate-900 tracking-wide">{agent.name}</span>
+                                <span className="h-px flex-1 bg-slate-200"></span>
+                            </div>
+                            <div className="space-y-3 pl-4">
+                                {formData.sections[agent.id].map((item, idx) => (
+                                    <div key={idx} className="flex items-start gap-5 p-5 bg-white shadow-sm border border-slate-100 hover:shadow-md transition-all">
+                                        <div className="relative flex items-center mt-0.5">
+                                            <input type="checkbox" defaultChecked={item.checked} className="peer appearance-none w-4 h-4 border border-slate-300 checked:bg-slate-900 checked:border-slate-900 cursor-pointer rounded-none" />
+                                            <div className="absolute inset-0 pointer-events-none text-white hidden peer-checked:flex items-center justify-center"><Check className="w-3 h-3" /></div>
+                                        </div>
+                                        <span className={`text-sm font-medium ${item.checked ? 'text-slate-800' : 'text-slate-400 line-through'}`}>{item.label}</span>
+                                        {item.type === 'alert' && <span className="ml-auto text-[9px] font-bold text-red-500 uppercase border border-red-200 px-2 py-0.5">{t('demo.updated')}</span>}
+                                    </div>
+                                ))}
+                            </div>
                         </div>
                     ))}
                 </div>
             </div>
-        ))}
-    </div>
-</div>
 
-{/* ----------------- 右栏：私人指令中心 ----------------- */ }
-<div className="w-[400px] bg-white border-l border-slate-100 flex flex-col z-20 shrink-0 shadow-xl shadow-slate-200/50">
-    <div className="flex-1 overflow-y-auto p-6 space-y-8 bg-slate-50/30">
-        {messages.map((msg, i) => (
-            <div key={i} className={`flex flex-col ${msg.role === 'user' ? 'items-end' : 'items-start'} animate-in fade-in slide-in-from-bottom-2`}>
-                <div className={`max-w-[85%] p-5 text-sm leading-relaxed shadow-sm ${msg.role === 'user' ? 'bg-slate-900 text-white' : 'bg-white border border-slate-100 text-slate-600'}`}>
-                    {msg.text}
+            {/* ----------------- 右栏：私人指令中心 ----------------- */}
+            <div className="w-[400px] bg-white border-l border-slate-100 flex flex-col z-20 shrink-0 shadow-xl shadow-slate-200/50">
+                <div className="flex-1 overflow-y-auto p-6 space-y-8 bg-slate-50/30">
+                    {messages.map((msg, i) => (
+                        <div key={i} className={`flex flex-col ${msg.role === 'user' ? 'items-end' : 'items-start'} animate-in fade-in slide-in-from-bottom-2`}>
+                            <div className={`max-w-[85%] p-5 text-sm leading-relaxed shadow-sm ${msg.role === 'user' ? 'bg-slate-900 text-white' : 'bg-white border border-slate-100 text-slate-600'}`}>
+                                {msg.text}
+                            </div>
+                        </div>
+                    ))}
+                    <div ref={messagesEndRef} />
+                </div>
+                <div className="p-6 border-t border-slate-100 bg-white">
+                    {!isProcessing && Object.keys(formData.sections).length === 0 && (
+                        <button onClick={startPlanning} className="w-full mb-6 bg-slate-900 text-white py-4 font-bold text-xs uppercase tracking-[0.2em] hover:bg-slate-800 transition-all flex items-center justify-center gap-3 shadow-lg">
+                            <Sparkles className="w-4 h-4" /> {t('home.initiateProtocol')}
+                        </button>
+                    )}
+                    {/* 状态总览快捷按钮 - 在有任务后显示 */}
+                    {hasTasks && (
+                        <button onClick={() => setShowStatusPanel(true)} className="w-full mb-4 bg-gradient-to-r from-amber-50 to-amber-100/50 text-amber-800 py-3 font-bold text-[10px] uppercase tracking-[0.15em] hover:from-amber-100 hover:to-amber-50 transition-all flex items-center justify-center gap-2 border border-amber-200">
+                            <BarChart3 className="w-3.5 h-3.5" /> {t('home.viewStatus')}
+                        </button>
+                    )}
+                    <div className={`relative flex items-center gap-0 border transition-all duration-300 ${isListening ? 'border-red-200 bg-red-50' : 'border-slate-200 bg-slate-50'}`}>
+                        <button onClick={handleVoiceDemo} disabled={isListening} className={`p-4 transition-colors border-r border-slate-100 ${isListening ? 'text-red-500 animate-pulse' : 'text-slate-400 hover:text-slate-600'}`}><Mic className="w-4 h-4" /></button>
+                        <input value={inputMessage} onChange={e => setInputMessage(e.target.value)} placeholder={isListening ? t('home.listening') : t('home.typePlaceholder')} className="flex-1 bg-transparent px-5 py-4 text-sm outline-none text-slate-900 placeholder-slate-400 font-serif" />
+                        <button className="p-4 text-slate-800 border-l border-slate-100"><Send className="w-4 h-4" /></button>
+                    </div>
                 </div>
             </div>
-        ))}
-        <div ref={messagesEndRef} />
-    </div>
-    <div className="p-6 border-t border-slate-100 bg-white">
-        {!isProcessing && Object.keys(formData.sections).length === 0 && (
-            <button onClick={startPlanning} className="w-full mb-6 bg-slate-900 text-white py-4 font-bold text-xs uppercase tracking-[0.2em] hover:bg-slate-800 transition-all flex items-center justify-center gap-3 shadow-lg">
-                <Sparkles className="w-4 h-4" /> {t('home.initiateProtocol')}
-            </button>
-        )}
-        {/* 状态总览快捷按钮 - 在有任务后显示 */}
-        {hasTasks && (
-            <button onClick={() => setShowStatusPanel(true)} className="w-full mb-4 bg-gradient-to-r from-amber-50 to-amber-100/50 text-amber-800 py-3 font-bold text-[10px] uppercase tracking-[0.15em] hover:from-amber-100 hover:to-amber-50 transition-all flex items-center justify-center gap-2 border border-amber-200">
-                <BarChart3 className="w-3.5 h-3.5" /> {t('home.viewStatus')}
-            </button>
-        )}
-        <div className={`relative flex items-center gap-0 border transition-all duration-300 ${isListening ? 'border-red-200 bg-red-50' : 'border-slate-200 bg-slate-50'}`}>
-            <button onClick={handleVoiceDemo} disabled={isListening} className={`p-4 transition-colors border-r border-slate-100 ${isListening ? 'text-red-500 animate-pulse' : 'text-slate-400 hover:text-slate-600'}`}><Mic className="w-4 h-4" /></button>
-            <input value={inputMessage} onChange={e => setInputMessage(e.target.value)} placeholder={isListening ? t('home.listening') : t('home.typePlaceholder')} className="flex-1 bg-transparent px-5 py-4 text-sm outline-none text-slate-900 placeholder-slate-400 font-serif" />
-            <button className="p-4 text-slate-800 border-l border-slate-100"><Send className="w-4 h-4" /></button>
-        </div>
-    </div>
-</div>
         </div >
     );
 }
