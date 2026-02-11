@@ -1,0 +1,189 @@
+{
+    "app": {
+        "title": "LUMIÈRE AI · 私人办公室协议",
+        "concierge": "CONCIERGE",
+        "subtitle": "私人办公室 AI"
+    },
+    "agents": {
+        "lifestyle": "生活方式顾问",
+        "access": "全球通行管家",
+        "tech": "精密设备专家",
+        "wellness": "生命健康卫士",
+        "concierge": "首席礼宾司",
+        "idle": "待命"
+    },
+    "agentDocs": {
+        "lifestyle": {
+            "role": "生活方式策划师",
+            "skills": [
+                "微气候预测",
+                "米其林定制",
+                "着装礼仪"
+            ],
+            "instruction": "专注极致体验..."
+        },
+        "access": {
+            "role": "全球通行总监",
+            "skills": [
+                "公务机航线",
+                "外交礼遇",
+                "资产合规"
+            ],
+            "instruction": "确保无缝通行..."
+        },
+        "tech": {
+            "role": "精密科技专家",
+            "skills": [
+                "加密通讯",
+                "器材维护",
+                "卫星网络"
+            ],
+            "instruction": "保障数字资产..."
+        },
+        "wellness": {
+            "role": "健康守护官",
+            "skills": [
+                "私人医生",
+                "紧急救援",
+                "生理监测"
+            ],
+            "instruction": "全天候生命守护..."
+        },
+        "concierge": {
+            "role": "首席礼宾司",
+            "skills": [
+                "交通统筹",
+                "稀缺资源",
+                "即时响应"
+            ],
+            "instruction": "统筹一切细节..."
+        }
+    },
+    "memories": {
+        "initial": [
+            {
+                "content": "偏好靠窗座位，且必须在机翼前方",
+                "type": "habit",
+                "agent": "access",
+                "date": "2023-11-15"
+            },
+            {
+                "content": "只饮用气泡水 (San Pellegrino)",
+                "type": "preference",
+                "agent": "lifestyle",
+                "date": "2023-12-01"
+            },
+            {
+                "content": "希望在行程中增加\"独处冥想\"时段",
+                "type": "idea",
+                "agent": "wellness",
+                "date": "2024-01-10"
+            }
+        ]
+    },
+    "home": {
+        "clientProfile": "客户档案",
+        "clientName": "李先生",
+        "memoryAccessOn": "记忆通道已开启",
+        "lastSync": "最后同步",
+        "today": "今天 10:42 AM",
+        "waitingToInitiate": "等待启动",
+        "initiateProtocol": "启动协议",
+        "typePlaceholder": "输入指令...",
+        "listening": "正在聆听...",
+        "protocolManual": "使用手册",
+        "viewStatus": "查看协议状态"
+    },
+    "modal": {
+        "serviceProfile": "服务档案",
+        "clientDossier": "客户档案",
+        "servicePosition": "服务定位",
+        "exclusiveBenefits": "专属权益",
+        "pendingInsights": "待确认记忆",
+        "autoExpire": "3天后自动失效",
+        "undo": "撤销",
+        "accept": "确认",
+        "longTermDossier": "长期记忆档案",
+        "allTag": "全部",
+        "ideaTag": "想法",
+        "toneTag": "口吻",
+        "prefsTag": "喜好",
+        "habitTag": "习惯",
+        "loggedBy": "记录者",
+        "memoryEngineVersion": "Lumière 记忆引擎 v2.0",
+        "learningActive": "学习中"
+    },
+    "demo": {
+        "initialMessage": "您好，李先生。私人礼宾团队已就位。根据您的【档案记忆】，已自动为您预选了 G650ER 机型。",
+        "confirmTrip": "确认行程：{destination}。启动全方位准备程序。",
+        "readingMemory": "正在读取记忆库... 发现 3 条相关偏好，已自动应用。",
+        "readingProfile": "读取客户档案...",
+        "memoryMatched": "记忆匹配完成",
+        "lifestyleTask": "预备 San Pellegrino 气泡水 (已确认)",
+        "accessTask": "锁定 1A/1F 机翼前座位 (已确认)",
+        "defaultTask": "根据记忆自动配置",
+        "destination": "瑞士 · 达沃斯 (Davos)",
+        "duration": "7天 · 公务行程",
+        "voiceText": "帮我把晚餐改成全素食，我最近在尝试一种新的饮食习惯，希望保持清淡。",
+        "analyzingDiet": "分析饮食需求...",
+        "dietAdjust": "膳食调整：全素食 (Plant-based)",
+        "updateDone": "更新完毕",
+        "newMemoryContent": "饮食习惯变更为\"全素食\"，偏好清淡口味。",
+        "voiceResult": "已为您调整为全素食。同时，【生活方式顾问】提取了一条新的记忆点，请在档案中确认。",
+        "memoryTuning": "[记忆微调] 已将\"{content}\"写入长期档案。",
+        "updated": "已更新",
+        "statusSummaryMsg": "已为您生成协议执行状态总览，请查阅。"
+    },
+    "help": {
+        "backToConsole": "返回控制台",
+        "documentation": "产品文档",
+        "pageTitle": "私人办公室协议",
+        "pageDesc": "完整的产品架构文档、演示剧本与技术亮点",
+        "memoryEngine": "记忆引擎 v2.0",
+        "multiAgent": "多智能体架构",
+        "launchConsole": "启动控制台",
+        "returnToConsole": "返回私人办公室控制台"
+    },
+    "langSwitch": {
+        "label": "中文"
+    },
+    "status": {
+        "title": "协议执行状态",
+        "subtitle": "实时览图 · 全局总控",
+        "overallProgress": "总体进度",
+        "agentStatus": "智能体状态",
+        "taskChecklist": "任务清单",
+        "memoryBank": "记忆库",
+        "completed": "已完成",
+        "working": "执行中",
+        "idle": "待命",
+        "tasksCompleted": "项已完成",
+        "totalTasks": "项任务",
+        "memoriesActive": "条记忆生效",
+        "pendingReview": "条待确认",
+        "noTasks": "尚无任务",
+        "destination": "目的地",
+        "duration": "行程",
+        "close": "关闭总览",
+        "generatedAt": "生成时间"
+    },
+    "logs": {
+        "tab": "运行日志",
+        "systemCheck": "系统健康自检通过",
+        "dataSync": "全球节点数据同步完成",
+        "securityUpdate": "安全协议自动更新",
+        "scanning": "例行任务扫描",
+        "monitoring": "正在进行实时监控...",
+        "success": "正常",
+        "info": "信息",
+        "working": "运行中"
+    },
+    "alert": {
+        "title": "突发事件监测",
+        "flightChange": "监测到 G650ER 航线空域管制，原定起飞时间可能延迟。",
+        "rebooking": "正在搜索替代航线...",
+        "newFlight": "已锁定备选航路 (无需操作)",
+        "solved": "危机已自动解除",
+        "source": "LUMIÈRE 全球雷达"
+    }
+}

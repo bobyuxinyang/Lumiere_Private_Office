@@ -1,0 +1,189 @@
+{
+    "app": {
+        "title": "LUMIÈRE AI · Private Office Protocol",
+        "concierge": "CONCIERGE",
+        "subtitle": "Private Office AI"
+    },
+    "agents": {
+        "lifestyle": "Lifestyle Curator",
+        "access": "Global Access Director",
+        "tech": "Precision Tech Specialist",
+        "wellness": "Wellness Officer",
+        "concierge": "Chief Concierge",
+        "idle": "Standby"
+    },
+    "agentDocs": {
+        "lifestyle": {
+            "role": "Lifestyle Curator",
+            "skills": [
+                "Micro-climate Prediction",
+                "Michelin Customization",
+                "Dress Code Advisory"
+            ],
+            "instruction": "Focus on ultimate experiences..."
+        },
+        "access": {
+            "role": "Global Access Director",
+            "skills": [
+                "Private Jet Routes",
+                "Diplomatic Courtesy",
+                "Asset Compliance"
+            ],
+            "instruction": "Ensure seamless passages..."
+        },
+        "tech": {
+            "role": "Precision Tech Specialist",
+            "skills": [
+                "Encrypted Communication",
+                "Equipment Maintenance",
+                "Satellite Network"
+            ],
+            "instruction": "Protect digital assets..."
+        },
+        "wellness": {
+            "role": "Wellness Officer",
+            "skills": [
+                "Private Doctor",
+                "Emergency Rescue",
+                "Biometric Monitoring"
+            ],
+            "instruction": "24/7 life protection..."
+        },
+        "concierge": {
+            "role": "Chief Concierge",
+            "skills": [
+                "Transportation Coordination",
+                "Rare Resources",
+                "Instant Response"
+            ],
+            "instruction": "Orchestrate every detail..."
+        }
+    },
+    "memories": {
+        "initial": [
+            {
+                "content": "Prefers window seat, must be forward of wing",
+                "type": "habit",
+                "agent": "access",
+                "date": "2023-11-15"
+            },
+            {
+                "content": "Only drinks sparkling water (San Pellegrino)",
+                "type": "preference",
+                "agent": "lifestyle",
+                "date": "2023-12-01"
+            },
+            {
+                "content": "Wishes to include 'solo meditation' sessions in itinerary",
+                "type": "idea",
+                "agent": "wellness",
+                "date": "2024-01-10"
+            }
+        ]
+    },
+    "home": {
+        "clientProfile": "Client Profile",
+        "clientName": "Mr. Li",
+        "memoryAccessOn": "Memory Access On",
+        "lastSync": "Last Sync",
+        "today": "Today 10:42 AM",
+        "waitingToInitiate": "Waiting to Initiate",
+        "initiateProtocol": "Initiate Protocol",
+        "typePlaceholder": "Type request...",
+        "listening": "Listening...",
+        "protocolManual": "Protocol Manual",
+        "viewStatus": "View Protocol Status"
+    },
+    "modal": {
+        "serviceProfile": "Service Profile",
+        "clientDossier": "Client Dossier",
+        "servicePosition": "Service Position",
+        "exclusiveBenefits": "Exclusive Benefits",
+        "pendingInsights": "Pending Insights",
+        "autoExpire": "Auto-expires in 3 days",
+        "undo": "Undo",
+        "accept": "Accept",
+        "longTermDossier": "Long-term Dossier",
+        "allTag": "All",
+        "ideaTag": "Idea",
+        "toneTag": "Tone",
+        "prefsTag": "Prefs",
+        "habitTag": "Habit",
+        "loggedBy": "Logged by",
+        "memoryEngineVersion": "Lumière Memory Engine v2.0",
+        "learningActive": "Learning Active"
+    },
+    "demo": {
+        "initialMessage": "Good day, Mr. Li. Your private concierge team is ready. Based on your [Profile Memory], a G650ER has been pre-selected for you.",
+        "confirmTrip": "Confirm itinerary: {destination}. Initiate full preparation program.",
+        "readingMemory": "Reading memory bank... Found 3 relevant preferences, auto-applied.",
+        "readingProfile": "Reading client profile...",
+        "memoryMatched": "Memory matched",
+        "lifestyleTask": "Prepare San Pellegrino sparkling water (Confirmed)",
+        "accessTask": "Lock seats 1A/1F forward of wing (Confirmed)",
+        "defaultTask": "Auto-configured from memory",
+        "destination": "Davos, Switzerland",
+        "duration": "7 Days · Business Trip",
+        "voiceText": "Please change my dinner to fully vegan. I'm trying a new diet recently — prefer light meals.",
+        "analyzingDiet": "Analyzing dietary needs...",
+        "dietAdjust": "Meal adjustment: Full Vegan (Plant-based)",
+        "updateDone": "Update complete",
+        "newMemoryContent": "Dietary preference changed to 'Full Vegan', prefers light flavors.",
+        "voiceResult": "Your meals have been adjusted to fully vegan. Meanwhile, the [Lifestyle Curator] has captured a new memory insight — please confirm in the dossier.",
+        "memoryTuning": "[Memory Tuning] \"{content}\" has been written to the long-term dossier.",
+        "updated": "Updated",
+        "statusSummaryMsg": "Protocol status summary has been generated for your review."
+    },
+    "help": {
+        "backToConsole": "Back to Console",
+        "documentation": "Documentation",
+        "pageTitle": "Private Office Protocol",
+        "pageDesc": "Complete product architecture documentation, demo scripts, and technical highlights",
+        "memoryEngine": "Memory Engine v2.0",
+        "multiAgent": "Multi-Agent Architecture",
+        "launchConsole": "Launch Console",
+        "returnToConsole": "Return to the Private Office Console"
+    },
+    "langSwitch": {
+        "label": "EN"
+    },
+    "status": {
+        "title": "Protocol Status",
+        "subtitle": "Real-time Overview · Global Control",
+        "overallProgress": "Overall Progress",
+        "agentStatus": "Agent Status",
+        "taskChecklist": "Task Checklist",
+        "memoryBank": "Memory Bank",
+        "completed": "Completed",
+        "working": "Working",
+        "idle": "Standby",
+        "tasksCompleted": "completed",
+        "totalTasks": "total tasks",
+        "memoriesActive": "active memories",
+        "pendingReview": "pending review",
+        "noTasks": "No tasks yet",
+        "destination": "Destination",
+        "duration": "Duration",
+        "close": "Close Overview",
+        "generatedAt": "Generated at"
+    },
+    "logs": {
+        "tab": "Operation Logs",
+        "systemCheck": "System health check passed",
+        "dataSync": "Global node data synchronization",
+        "securityUpdate": "Security protocol auto-update",
+        "scanning": "Routine task scanning",
+        "monitoring": "Active monitoring in progress...",
+        "success": "Success",
+        "info": "Info",
+        "working": "Working"
+    },
+    "alert": {
+        "title": "Proactive Alert",
+        "flightChange": "Airspace control detected for G650ER route. Departure may be delayed.",
+        "rebooking": "Searching for alternative routes...",
+        "newFlight": "Alternative route locked (No action needed)",
+        "solved": "Issue auto-resolved",
+        "source": "LUMIÈRE Global Radar"
+    }
+}

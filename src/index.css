@@ -1,0 +1,308 @@
+@import "tailwindcss";
+
+/* -------- 字体 -------- */
+@theme {
+  --font-serif: 'Playfair Display', serif;
+  --font-sans: 'Inter', sans-serif;
+}
+
+/* -------- 自定义动画关键帧 -------- */
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slide-in-from-bottom-2 {
+  from {
+    transform: translateY(0.5rem);
+  }
+
+  to {
+    transform: translateY(0);
+  }
+}
+
+@keyframes slide-in-from-bottom-8 {
+  from {
+    transform: translateY(2rem);
+  }
+
+  to {
+    transform: translateY(0);
+  }
+}
+
+@keyframes slide-in-from-left-4 {
+  from {
+    transform: translateX(-1rem);
+  }
+
+  to {
+    transform: translateX(0);
+  }
+}
+
+@keyframes slide-in-from-right-4 {
+  from {
+    transform: translateX(1rem);
+  }
+
+  to {
+    transform: translateX(0);
+  }
+}
+
+/* -------- 复合动画工具类 -------- */
+.animate-in {
+  animation-duration: 0.3s;
+  animation-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
+  animation-fill-mode: both;
+}
+
+.fade-in {
+  animation-name: fade-in;
+}
+
+.slide-in-from-bottom-2 {
+  animation-name: slide-in-from-bottom-2;
+}
+
+.slide-in-from-bottom-8 {
+  animation-name: slide-in-from-bottom-8;
+}
+
+.slide-in-from-left-4 {
+  animation-name: slide-in-from-left-4;
+}
+
+.slide-in-from-right-4 {
+  animation-name: slide-in-from-right-4;
+}
+
+/* -------- 全局样式 -------- */
+body {
+  margin: 0;
+  font-family: 'Inter', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* -------- Markdown 文章样式 (LUMIÈRE 风格) -------- */
+.prose-lumiere {
+  max-width: 65ch;
+  margin: 0 auto;
+}
+
+.prose-lumiere h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: 2.25rem;
+  font-weight: 700;
+  color: #0f172a;
+  margin-top: 0;
+  margin-bottom: 2rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid #e2e8f0;
+  letter-spacing: -0.025em;
+  position: relative;
+}
+
+.prose-lumiere h1::after {
+  content: "";
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  width: 60px;
+  height: 3px;
+  background-color: #d97706;
+  /* amber-600 */
+}
+
+.prose-lumiere h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.75rem;
+  font-weight: 600;
+  color: #1e293b;
+  margin-top: 3.5rem;
+  margin-bottom: 1.25rem;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.prose-lumiere h2::before {
+  content: "";
+  display: block;
+  width: 4px;
+  height: 1.5rem;
+  background-color: #f59e0b;
+  /* amber-500 */
+  border-radius: 1px;
+}
+
+.prose-lumiere h3 {
+  font-family: 'Inter', sans-serif;
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: #334155;
+  margin-top: 2rem;
+  margin-bottom: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.prose-lumiere p {
+  color: #475569;
+  line-height: 1.8;
+  margin-bottom: 1.5rem;
+  font-size: 1rem;
+}
+
+.prose-lumiere ul,
+.prose-lumiere ol {
+  margin-top: 1rem;
+  margin-bottom: 1.5rem;
+  padding-left: 0;
+  list-style: none;
+}
+
+.prose-lumiere li {
+  color: #475569;
+  line-height: 1.75;
+  margin-bottom: 0.5rem;
+  padding-left: 1.5rem;
+  position: relative;
+}
+
+.prose-lumiere ul>li::before {
+  content: "•";
+  position: absolute;
+  left: 0;
+  color: #d97706;
+  /* amber-600 */
+  font-weight: bold;
+  font-size: 1.2em;
+  line-height: 1.5;
+}
+
+.prose-lumiere ol>li {
+  counter-increment: list-counter;
+}
+
+.prose-lumiere ol {
+  counter-reset: list-counter;
+}
+
+.prose-lumiere ol>li::before {
+  content: counter(list-counter) ".";
+  position: absolute;
+  left: 0;
+  color: #94a3b8;
+  font-weight: 600;
+  font-family: monospace;
+  font-size: 0.9em;
+  line-height: 1.75;
+}
+
+.prose-lumiere strong {
+  color: #1e293b;
+  font-weight: 700;
+}
+
+.prose-lumiere table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  margin: 2rem 0;
+  font-size: 0.925rem;
+  border: 1px solid #e2e8f0;
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+.prose-lumiere thead th {
+  background: #f8fafc;
+  color: #475569;
+  font-weight: 600;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  padding: 1rem 1.25rem;
+  text-align: left;
+  border-bottom: 1px solid #cbd5e1;
+}
+
+.prose-lumiere tbody td {
+  padding: 1rem 1.25rem;
+  border-bottom: 1px solid #f1f5f9;
+  color: #475569;
+  vertical-align: top;
+  background-color: #fff;
+}
+
+.prose-lumiere tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.prose-lumiere tbody tr:hover td {
+  background-color: #fffbeb;
+  /* amber-50 */
+}
+
+.prose-lumiere blockquote {
+  border-left: 4px solid #f59e0b;
+  padding: 1.5rem 2rem;
+  margin: 2rem 0;
+  background: linear-gradient(to right, #fffbeb, #ffffff);
+  border-radius: 0 8px 8px 0;
+  font-style: italic;
+  font-family: 'Playfair Display', serif;
+  color: #78350f;
+  /* amber-900 */
+}
+
+.prose-lumiere blockquote p:last-child {
+  margin-bottom: 0;
+}
+
+.prose-lumiere code {
+  background: #f1f5f9;
+  padding: 0.2em 0.4em;
+  border-radius: 0.25rem;
+  font-size: 0.85em;
+  font-family: 'JetBrains Mono', monospace;
+  /* fallback to monospace */
+  color: #db2777;
+  /* pink-600 */
+  font-weight: 500;
+}
+
+.prose-lumiere pre code {
+  background: transparent;
+  padding: 0;
+  color: inherit;
+  font-size: inherit;
+}
+
+.prose-lumiere hr {
+  border: none;
+  height: 1px;
+  background: linear-gradient(to right, transparent, #e2e8f0, transparent);
+  margin: 3rem 0;
+}
+
+.prose-lumiere a {
+  color: #d97706;
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  transition: border-color 0.2s, color 0.2s;
+}
+
+.prose-lumiere a:hover {
+  border-bottom-color: #d97706;
+  color: #b45309;
+}
