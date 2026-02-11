@@ -1,98 +1,98 @@
-# LUMIÈRE AI · Private Office Protocol
-### The Art of Anticipation
+# LUMIÈRE AI · 私人办公室协议 (Private Office Protocol)
+### 预判的艺术 (The Art of Anticipation)
 
-Welcome to the future of family office management. LUMIÈRE is not just an assistant; it is a **proactive intelligence** designed for ultra-high-net-worth individuals who demand perfection, privacy, and anticipation.
-
----
-
-## 💎 Core Value Proposition
-**Why LUMIÈRE?**
-
-### 1. Continuous Vigilance (24/7 全天候守护)
-Your life doesn't stop at 5 PM. Neither does LUMIÈRE. While you sleep, our agents are:
-- Monitoring global airspace for your upcoming flights.
-- Syncing health telemetry with your medical team.
-- Scanning geopolitical shifts that might affect your assets.
-*Evidence: Check the "Operation Logs" in any Agent Profile to see activity from 02:00 AM.*
-
-### 2. Implicit Knowledge (隐性知识捕捉)
-We don't ask you to fill out forms. LUMIÈRE listens.
-- It understands "I'm feeling heavy" means "adjust the menu to lighter, organic options".
-- It remembers your preference for "South-facing suites" from a casual remark three months ago.
-*Evidence: The "Client Dossier" automatically updates after every voice interaction.*
-
-### 3. Proactive Execution (主动式危机解除)
-Traditional assistants wait for orders. LUMIÈRE acts before the problem touches you.
-- **Problem**: Airspace restriction detected for your G650ER route.
-- **Action**: Alternative flight path locked and ground transport rerouted *before* you are even notified.
-- **Result**: Seamless continuity.
+欢迎来到家族办公室管理的未来。LUMIÈRE 不仅仅是一个助手；它是一个**主动式智能系统**，专为要求完美、极度注重隐私且追求卓越预判能力的超高净值人士设计。
 
 ---
 
-## 🚀 Live Demonstration Script
-Follow this sequence to demonstrate the full power of LUMIÈRE.
+## 💎 核心价值主张
+**为何选择 LUMIÈRE？**
 
-### Phase 1: Cold Start (The Memory Engine)
-*Demonstrates: Instant context awareness.*
-1.  **Action**: Click the **"INITIATE PROTOCOL"** button.
-2.  **Observe**:
-    - The system does not ask "What do you want?".
-    - Instead, it reads the **Client Dossier**.
-    - 5 Specialist Agents (Lifestyle, Access, Tech, Wellness, Concierge) instantly generate a tailored itinerary based on historical preferences.
+### 1. 24/7 全天候守护 (Continuous Vigilance)
+您的生活不会在下午 5 点停止。LUMIÈRE 同样如此。在您休息时，我们的智能体正在：
+- 监控全球空域，确保您即将开始的航程万无一失。
+- 与您的医疗团队同步健康遥测数据。
+- 扫描可能影响您资产配置的全球地缘政治变化。
+*证明：在任何智能体档案中点击“运行日志”，即可查看凌晨 02:00 的活动记录。*
 
-### Phase 2: Active Listening (The Voice Interface)
-*Demonstrates: Natural language understanding & preference learning.*
-1.  **Action**: Click the **Microphone** icon (or type) to provide feedback.
-    - *Script*: "I've been eating too much rich food lately. Let's keep it light this trip."
-2.  **Observe**:
-    - **Lifestyle Agent** awakens and analyzes the request.
-    - A **New Memory** ("Prefers light/organic meals") is extracted and highlighted.
-    - The itinerary is auto-updated (e.g., "Michelin dinner replaced with Farm-to-Table exp").
-3.  **Action**: Click "Accept" in the Memory Modal to commit this to long-term storage.
+### 2. 隐性知识捕捉 (Implicit Knowledge)
+我们不会让您填写繁琐的表单。LUMIÈRE 懂得倾听：
+- 它能理解“我最近感觉身体沉重”意味着“将菜单调整为轻食、有机选项”。
+- 它能从三个月前的一句闲聊中，记住您对“南向套房”的偏好。
+*证明：每次语音互动后，“客户档”都会自动更新。*
 
-### Phase 3: Total Clarity (The Status Room)
-*Demonstrates: Control & Transparency.*
-1.  **Action**: Click the golden **"VIEW STATUS"** button (bottom left) or wait for the auto-trigger.
-2.  **Observe**:
-    - **Progress Ring**: Real-time completion status of the entire protocol.
-    - **Memory Bank**: Number of active insights vs. pending reviews.
-    - **Agent Status**: See exactly which agent is working on what task.
-
-### Phase 4: Crisis Aversion (Proactive Alert) **[NEW]**
-*Demonstrates: 24/7 Monitoring & Handling.*
-1.  **Action**: Wait 5 seconds after viewing the Status Room.
-2.  **Event**: A **High-Priority Alert** appears at the top of the screen.
-    - *Scenario*: "Airspace control detected for G650ER route."
-3.  **Observe**:
-    - You do not need to intervene.
-    - **Access Agent** automatically wakes up: "Searching for alternative routes..."
-    - **Resolution**: "Alternative route locked." The alert resolves itself.
-
-### Phase 5: Deep Trust (The Audit Log) **[NEW]**
-*Demonstrates: Accountability.*
-1.  **Action**: Click on any Agent Icon (e.g., Tech).
-2.  **Action**: Switch to the **"Operation Logs"** tab.
-3.  **Observe**:
-    - A timestamped timeline showing activities performed while the user was inactive (e.g., "04:30 AM Data Sync", "06:45 AM Security Update").
+### 3. 主动式危机解除 (Proactive Execution)
+传统的助手等待指令。LUMIÈRE 在问题触及您之前就已采取行动：
+- **发现问题**：监测到您的 G650ER 航线存在空域管制。
+- **立即行动**：在您收到通知之前，已锁定备选航路并重新规划地面接驳。
+- **结果**：您的日程保持严丝合缝的连续性。
 
 ---
 
-## 🧩 System Architecture
+## 🚀 现场演示脚本
+请按照以下顺序进行操作，以全面展示 LUMIÈRE 的强大能力。
 
-### Multi-Agent Orchestration
-LUMIÈRE is not a single bot. It is a **Council of Experts**:
-- **Lifestyle**: Gastronomy, events, art.
-- **Access**: Aviation, yachting, secure transport.
-- **Tech**: Cyber-security, connectivity, smart environments.
-- **Wellness**: Medical telemetry, fitness, longevity.
-- **Concierge**: Logistics, staffing, errands.
+### 阶段 1：冷启动 (记忆引擎)
+*演示目标：即时的语境感知。*
+1.  **动作**：点击 **"INITIATE PROTOCOL"**（启动协议）按钮。
+2.  **观察**：
+    - 系统不会询问“您需要什么？”。
+    - 相反，它会读取**客户档案**。
+    - 5 位专家级智能体（生活方式、全球通行、精密设备、生命健康、首席礼宾）立即根据历史偏好生成定制行程。
 
-### The Memory Engine
-A vector-based long-term memory system that separates:
-1.  **Static Profile**: Hard constraints (Allergies, ID numbers).
-2.  **Dynamic Habits**: Learned preferences (Sleep patterns, taste profiles).
-3.  **Ephemeral Context**: Trip-specific requirements.
+### 阶段 2：深度倾听 (语音交互)
+*演示目标：自然语言理解与偏好学习。*
+1.  **动作**：点击**麦克风**图标（或输入文字）提供反馈。
+    - *脚本内容*：“我最近吃得有点油腻，这次行程安排得清淡一些。”
+2.  **观察**：
+    - **生活方式顾问**觉醒并分析该请求。
+    - 系统提取并高亮显示一条**新记忆**（“偏好轻食/有机餐食”）。
+    - 行程自动更新（例如：将米其林晚餐更换为农场直达的有机体验）。
+3.  **动作**：在记忆弹窗中点击“确认”，将其存入长期档案。
+
+### 阶段 3：全局掌控 (状态室)
+*演示目标：透明度与掌控感。*
+1.  **动作**：点击左下角的金色 **"VIEW STATUS"**（查看状态）按钮，或等待系统自动触发。
+2.  **观察**：
+    - **进度环**：整个协议执行的实时完成百分比。
+    - **记忆库**：生效记忆总数与待确认的深度洞察。
+    - **智能体状态**：清晰查看每位智能体正在具体执行哪项任务。
+
+### 阶段 4：危机预警 (突发事件)
+*演示目标：24小时监控与自主处理。*
+1.  **动作**：在查看“状态室”后等待约 5 秒。
+2.  **事件**：屏幕顶部会出现一条**高优先级警报**。
+    - *场景*：“监测到 G650ER 航线空域管制。”
+3.  **观察**：
+    - 您无需进行任何干预。
+    - **全球通行管家**自动激活：“正在搜索替代航线...”
+    - **解决结果**：“已锁定备选航路”。警报随后自动消失，问题已解决。
+
+### 阶段 5：深层信任 (审计轨迹)
+*演示目标：可追溯性与责任感。*
+1.  **动作**：点击任何智能体图标（例如：精密设备专家）。
+2.  **动作**：切换到 **"Operation Logs"**（运行日志）标签页。
+3.  **观察**：
+    - 查看智能体在用户未操作期间完成的活动时间线（例如：“04:30 AM 数据同步”、“06:45 AM 安全检查”）。
 
 ---
 
-*LUMIÈRE AI — Elevating the standard of living.*
+## 🧩 系统架构
+
+### 多智能体协同 (Agent Orchestration)
+LUMIÈRE 不是一个聊天机器人，它是一组**专家委员会**：
+- **生活方式顾问**：美食、活动、艺术、社交。
+- **全球通行管家**：航空、航海、安全交通。
+- **精密设备专家**：网络安全、连接性、智能环境。
+- **生命健康卫士**：医疗指标、健身、长寿策略。
+- **首席礼宾**：后勤、人员、琐事处理。
+
+### 记忆引擎 (The Memory Engine)
+基于向量的长期记忆系统，区分以下层次：
+1.  **静态档案**：硬约束（过敏原、证件信息）。
+2.  **动态习惯**：习得的偏好（睡眠模式、口味演变）。
+3.  **即时语境**：单次行程的特定要求。
+
+---
+
+*LUMIÈRE AI — 提升生命的境界。*
