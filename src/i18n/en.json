@@ -132,7 +132,26 @@
         "voiceResult": "Your meals have been adjusted to fully vegan. Meanwhile, the [Lifestyle Curator] has captured a new memory insight — please confirm in the dossier.",
         "memoryTuning": "[Memory Tuning] \"{content}\" has been written to the long-term dossier.",
         "updated": "Updated",
-        "statusSummaryMsg": "Protocol status summary has been generated for your review."
+        "statusSummaryMsg": "Protocol status summary has been generated for your review.",
+        "tour": {
+            "start": "Start Demo",
+            "stop": "Stop Demo",
+            "phase": "Phase",
+            "introTitle": "The Story",
+            "introDesc": "Mr. Li, an ultra-high-net-worth individual, is about to travel to Davos, Switzerland for an important summit. He needs an intelligent concierge system that anticipates needs, provides 24/7 vigilance, and autonomously handles crises. Watch how LUMIÈRE builds a flawless itinerary from scratch — using nothing but profile memory.",
+            "phase1Title": "Cold Start · Memory Engine",
+            "phase1Desc": "The system reads the client profile. Five expert agents automatically generate a customized itinerary based on historical preferences — no questions asked.",
+            "phase2Title": "Deep Listening · Voice Interaction",
+            "phase2Desc": "Provide feedback via natural language. The system analyzes semantics, extracts new memory insights, and updates the itinerary accordingly.",
+            "phase3Title": "Global Control · Status Room",
+            "phase3Desc": "View real-time protocol execution progress, memory bank status, and the specific task completion of each agent.",
+            "phase4Title": "Crisis Alert · Proactive Event",
+            "phase4Desc": "24/7 global monitoring. Upon detecting airspace control, alternative routes are automatically sourced — resolved before you even notice.",
+            "phase5Title": "Deep Trust · Audit Trail",
+            "phase5Desc": "Review all activities completed by agents during unattended hours, ensuring full transparency and traceability.",
+            "complete": "Demo Complete",
+            "completeDesc": "You've experienced all core capabilities of LUMIÈRE. Close to explore freely."
+        }
     },
     "help": {
         "backToConsole": "Back to Console",
@@ -166,6 +185,13 @@
         "duration": "Duration",
         "close": "Close Overview",
         "generatedAt": "Generated at"
+    },
+    "responses": {
+        "default": "Instruction received. Agents are being dispatched.",
+        "greeting": "LUMIÈRE at your service. How may we anticipate your needs?",
+        "weather": "Destination weather is clear, 23°C. Perfect for outdoor engagements.",
+        "itinerary": "Your latest itinerary has been synced to the Status Room.",
+        "processing": "Querying secure databases..."
     },
     "logs": {
         "tab": "Operation Logs",

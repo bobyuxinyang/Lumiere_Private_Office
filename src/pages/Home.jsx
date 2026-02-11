@@ -4,7 +4,8 @@ import {
     Plane, Sun, CreditCard, Smartphone, Pill, Map,
     Loader2, Sparkles, Terminal, ArrowRight,
     Radio, AlertTriangle, Zap, Mic, Send, MoreHorizontal, Square, X, FileText, Cpu, Upload, Check, Crown, Shield, Gem, Wine,
-    Brain, History, Tag, ThumbsUp, ThumbsDown, HelpCircle, Globe, BarChart3, CheckCircle2, Clock, Activity
+    Brain, History, Tag, ThumbsUp, ThumbsDown, HelpCircle, Globe, BarChart3, CheckCircle2, Clock, Activity,
+    Play, StopCircle
 } from 'lucide-react';
 import { useI18n } from '../i18n';
 
@@ -64,6 +65,11 @@ export default function Home() {
     const [showStatusPanel, setShowStatusPanel] = useState(false);
     const [showAlert, setShowAlert] = useState(false);
 
+    // 演示模式状态
+    const [demoMode, setDemoMode] = useState(false);
+    const [demoPhase, setDemoPhase] = useState(0);
+    const demoAbortRef = useRef(false);
+
     // 记忆系统状态
     const [memories, setMemories] = useState(initialMemories);
     const [pendingMemories, setPendingMemories] = useState([]);
@@ -90,6 +96,9 @@ export default function Home() {
         setSelectedAgentId(null);
         setShowStatusPanel(false);
         setShowAlert(false);
+        setDemoMode(false);
+        setDemoPhase(0);
+        demoAbortRef.current = false;
     }, [locale]);
 
     useEffect(() => { messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' }); }, [messages]);
@@ -129,7 +138,7 @@ export default function Home() {
         setIsProcessing(false);
     };
 
-    const handleVoiceDemo = async () => {
+    const handleVoiceDemo = async (isDemoTour = false) => {
         if (isListening) return;
         setIsListening(true);
         await delay(2000);
@@ -156,24 +165,27 @@ export default function Home() {
         setIsProcessing(false);
         addMessage('ai', t('demo.voiceResult'));
 
-        // 演示流程：先打开记忆确认面板，然后自动打开状态总览
-        setTimeout(() => {
-            setSelectedAgentId('lifestyle');
-            setActiveTab('memory');
-        }, 1500);
-
-        // 记忆确认后 5 秒自动弹出状态总览
-        setTimeout(() => {
-            setSelectedAgentId(null);
-            addMessage('ai', t('demo.statusSummaryMsg'));
-            setTimeout(() => setShowStatusPanel(true), 500);
-
-            // 状态总览展示 5 秒后，触发突发事件 (Proactive Alert)
+        // 在演示模式下不自动触发后续阶段，由 runDemoTour 控制
+        if (!isDemoTour) {
+            // 演示流程：先打开记忆确认面板，然后自动打开状态总览
             setTimeout(() => {
-                setShowStatusPanel(false); // 关闭总览以便展示 Alert
-                triggerProactiveAlert();
-            }, 6000);
-        }, 8000);
+                setSelectedAgentId('lifestyle');
+                setActiveTab('memory');
+            }, 1500);
+
+            // 记忆确认后 5 秒自动弹出状态总览
+            setTimeout(() => {
+                setSelectedAgentId(null);
+                addMessage('ai', t('demo.statusSummaryMsg'));
+                setTimeout(() => setShowStatusPanel(true), 500);
+
+                // 状态总览展示 5 秒后，触发突发事件 (Proactive Alert)
+                setTimeout(() => {
+                    setShowStatusPanel(false);
+                    triggerProactiveAlert();
+                }, 6000);
+            }, 8000);
+        }
     };
 
     const triggerProactiveAlert = async () => {
@@ -197,6 +209,134 @@ export default function Home() {
         if (checklistEndRef.current) checklistEndRef.current.scrollTop = checklistEndRef.current.scrollHeight;
     };
     const delay = (ms) => new Promise(resolve => setTimeout(resolve, ms));
+
+    // --- 演示模式自动流程 ---
+    const stopDemoTour = () => {
+        demoAbortRef.current = true;
+        setDemoMode(false);
+        setDemoPhase(0);
+    };
+
+    const runDemoTour = async () => {
+        demoAbortRef.current = false;
+        setDemoMode(true);
+
+        const checkAbort = () => demoAbortRef.current;
+
+        // --- 故事背景 ---
+        setDemoPhase(0);
+        await delay(6000);
+        if (checkAbort()) return;
+
+        // --- 阶段 1: 冷启动 ---
+        setDemoPhase(1);
+        await delay(1500);
+        if (checkAbort()) return;
+
+        await startPlanning();
+        if (checkAbort()) return;
+        await delay(2000);
+        if (checkAbort()) return;
+
+        // --- 阶段 2: 深度倾听 ---
+        setDemoPhase(2);
+        await delay(1500);
+        if (checkAbort()) return;
+
+        await handleVoiceDemo(true);
+        if (checkAbort()) return;
+
+        // 打开记忆确认面板
+        await delay(1500);
+        if (checkAbort()) return;
+        setSelectedAgentId('lifestyle');
+        setActiveTab('memory');
+        await delay(4000);
+        if (checkAbort()) return;
+        setSelectedAgentId(null);
+
+        // --- 阶段 3: 全局掌控 ---
+        setDemoPhase(3);
+        await delay(1000);
+        if (checkAbort()) return;
+
+        addMessage('ai', t('demo.statusSummaryMsg'));
+        await delay(500);
+        if (checkAbort()) return;
+        setShowStatusPanel(true);
+        await delay(5000);
+        if (checkAbort()) return;
+        setShowStatusPanel(false);
+
+        // --- 阶段 4: 危机预警 ---
+        setDemoPhase(4);
+        await delay(1000);
+        if (checkAbort()) return;
+
+        await triggerProactiveAlert();
+        if (checkAbort()) return;
+        await delay(4000);
+        if (checkAbort()) return;
+        setShowAlert(false);
+
+        // --- 阶段 5: 深层信任 ---
+        setDemoPhase(5);
+        await delay(1000);
+        if (checkAbort()) return;
+
+        setSelectedAgentId('tech');
+        setActiveTab('logs');
+        await delay(5000);
+        if (checkAbort()) return;
+        setSelectedAgentId(null);
+
+        // --- 演示完成 ---
+        setDemoPhase(6);
+        await delay(5000);
+        if (!checkAbort()) {
+            setDemoMode(false);
+            setDemoPhase(0);
+        }
+    };
+
+    const handleSendMessage = async () => {
+        if (!inputMessage.trim() || isProcessing) return;
+        const text = inputMessage.trim();
+        setInputMessage('');
+        addMessage('user', text);
+        setIsProcessing(true);
+
+        const lowerText = text.toLowerCase();
+        let replyKey = 'default';
+
+        if (lowerText.includes('hi') || lowerText.includes('hello') || lowerText.includes('你好') || lowerText.includes('您好')) {
+            replyKey = 'greeting';
+        } else if (lowerText.includes('weather') || lowerText.includes('天气')) {
+            replyKey = 'weather';
+        } else if (lowerText.includes('schedule') || lowerText.includes('itinerary') || lowerText.includes('行程')) {
+            replyKey = 'itinerary';
+        }
+
+        // Simulate thinking
+        await delay(600);
+        addMessage('ai', t('responses.processing'));
+        await delay(1000);
+
+        // Remove processing message (optional, or just add the real reply)
+        // For simplicity, we just add the final reply. In a real app we might update the last message.
+        setMessages(prev => {
+            const newMsgs = [...prev];
+            newMsgs.pop(); // Remove "processing..."
+            return [...newMsgs, { role: 'ai', text: t(`responses.${replyKey}`), timestamp: new Date() }];
+        });
+
+        setIsProcessing(false);
+
+        // Auto-show status panel if asking about itinerary
+        if (replyKey === 'itinerary') {
+            setShowStatusPanel(true);
+        }
+    };
 
     // 获取数据
     const selectedAgent = selectedAgentId ? agents.find(a => a.id === selectedAgentId) : null;
@@ -629,6 +769,24 @@ export default function Home() {
                             {t('home.viewStatus')}
                         </button>
                     )}
+                    {!demoMode && (
+                        <button
+                            onClick={runDemoTour}
+                            className="flex items-center justify-center gap-2 w-full py-3 text-[10px] font-bold text-amber-600 uppercase tracking-[0.15em] hover:text-amber-800 hover:bg-amber-50 transition-all border border-amber-200 bg-amber-50/30"
+                        >
+                            <Play className="w-3.5 h-3.5" />
+                            {t('demo.tour.start')}
+                        </button>
+                    )}
+                    {demoMode && (
+                        <button
+                            onClick={stopDemoTour}
+                            className="flex items-center justify-center gap-2 w-full py-3 text-[10px] font-bold text-red-500 uppercase tracking-[0.15em] hover:text-red-700 hover:bg-red-50 transition-all border border-red-200 bg-red-50/30"
+                        >
+                            <StopCircle className="w-3.5 h-3.5" />
+                            {t('demo.tour.stop')}
+                        </button>
+                    )}
                     <Link
                         to="/help"
                         className="flex items-center justify-center gap-2 w-full py-3 text-[10px] font-bold text-slate-400 uppercase tracking-[0.15em] hover:text-slate-700 hover:bg-slate-50 transition-all border border-slate-100"
@@ -712,11 +870,85 @@ export default function Home() {
                     )}
                     <div className={`relative flex items-center gap-0 border transition-all duration-300 ${isListening ? 'border-red-200 bg-red-50' : 'border-slate-200 bg-slate-50'}`}>
                         <button onClick={handleVoiceDemo} disabled={isListening} className={`p-4 transition-colors border-r border-slate-100 ${isListening ? 'text-red-500 animate-pulse' : 'text-slate-400 hover:text-slate-600'}`}><Mic className="w-4 h-4" /></button>
-                        <input value={inputMessage} onChange={e => setInputMessage(e.target.value)} placeholder={isListening ? t('home.listening') : t('home.typePlaceholder')} className="flex-1 bg-transparent px-5 py-4 text-sm outline-none text-slate-900 placeholder-slate-400 font-serif" />
-                        <button className="p-4 text-slate-800 border-l border-slate-100"><Send className="w-4 h-4" /></button>
+                        <input
+                            value={inputMessage}
+                            onChange={e => setInputMessage(e.target.value)}
+                            onKeyDown={e => e.key === 'Enter' && handleSendMessage()}
+                            placeholder={isListening ? t('home.listening') : t('home.typePlaceholder')}
+                            className="flex-1 bg-transparent px-5 py-4 text-sm outline-none text-slate-900 placeholder-slate-400 font-serif"
+                        />
+                        <button onClick={handleSendMessage} disabled={!inputMessage.trim() || isProcessing} className="p-4 text-slate-800 border-l border-slate-100 hover:bg-slate-100 disabled:opacity-50 transition-colors"><Send className="w-4 h-4" /></button>
                     </div>
                 </div>
             </div>
+
+            {/* ----------------- 演示模式浮层讲解 ----------------- */}
+            {demoMode && demoPhase >= 0 && (
+                <div className="fixed bottom-6 left-6 z-[70] animate-in fade-in slide-in-from-bottom-8 duration-500" style={{ maxWidth: '420px' }}>
+                    <div className="bg-slate-900/95 backdrop-blur-xl border border-slate-700/50 shadow-2xl shadow-black/30 rounded-lg overflow-hidden">
+                        {/* 顶部金色光条 */}
+                        <div className="h-1 bg-gradient-to-r from-amber-500 via-amber-400 to-amber-600" style={{
+                            backgroundSize: '200% 100%',
+                            animation: 'demo-shimmer 2s linear infinite'
+                        }} />
+
+                        <div className="p-5">
+                            {/* 阶段标识 */}
+                            <div className="flex items-center justify-between mb-3">
+                                <div className="flex items-center gap-2">
+                                    <span className="text-[9px] font-bold text-amber-400 uppercase tracking-[0.2em] font-mono">
+                                        {demoPhase >= 1 && demoPhase <= 5 ? `${t('demo.tour.phase')} ${demoPhase} / 5` : ''}
+                                    </span>
+                                    {demoPhase >= 1 && demoPhase <= 5 && (
+                                        <span className="w-1.5 h-1.5 bg-amber-400 rounded-full animate-pulse" />
+                                    )}
+                                </div>
+                                <button onClick={stopDemoTour} className="text-slate-500 hover:text-white transition-colors">
+                                    <X className="w-4 h-4" />
+                                </button>
+                            </div>
+
+                            {/* 标题 */}
+                            <h3 className="font-serif text-lg text-white mb-2 tracking-wide">
+                                {demoPhase === 0 && t('demo.tour.introTitle')}
+                                {demoPhase === 1 && t('demo.tour.phase1Title')}
+                                {demoPhase === 2 && t('demo.tour.phase2Title')}
+                                {demoPhase === 3 && t('demo.tour.phase3Title')}
+                                {demoPhase === 4 && t('demo.tour.phase4Title')}
+                                {demoPhase === 5 && t('demo.tour.phase5Title')}
+                                {demoPhase === 6 && t('demo.tour.complete')}
+                            </h3>
+
+                            {/* 描述 */}
+                            <p className="text-sm text-slate-400 leading-relaxed">
+                                {demoPhase === 0 && t('demo.tour.introDesc')}
+                                {demoPhase === 1 && t('demo.tour.phase1Desc')}
+                                {demoPhase === 2 && t('demo.tour.phase2Desc')}
+                                {demoPhase === 3 && t('demo.tour.phase3Desc')}
+                                {demoPhase === 4 && t('demo.tour.phase4Desc')}
+                                {demoPhase === 5 && t('demo.tour.phase5Desc')}
+                                {demoPhase === 6 && t('demo.tour.completeDesc')}
+                            </p>
+
+                            {/* 进度指示器 */}
+                            <div className="flex items-center gap-1.5 mt-4">
+                                {[1, 2, 3, 4, 5].map(i => (
+                                    <div key={i} className="flex-1 h-1 rounded-full overflow-hidden bg-slate-700/50">
+                                        <div
+                                            className={`h-full rounded-full transition-all duration-700 ease-out ${i < demoPhase ? 'bg-amber-400 w-full'
+                                                : i === demoPhase ? 'bg-amber-400/70 animate-pulse'
+                                                    : ''
+                                                }`}
+                                            style={{ width: i < demoPhase ? '100%' : i === demoPhase ? '60%' : '0%' }}
+                                        />
+                                    </div>
+                                ))}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            )}
+
         </div >
     );
 }

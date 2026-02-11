@@ -84,6 +84,17 @@
   animation-name: slide-in-from-right-4;
 }
 
+/* -------- 演示模式动画 -------- */
+@keyframes demo-shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+
+  100% {
+    background-position: 200% 0;
+  }
+}
+
 /* -------- 全局样式 -------- */
 body {
   margin: 0;
