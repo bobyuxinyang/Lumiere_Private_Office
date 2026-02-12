@@ -121,6 +121,78 @@
         "memoryMatched": "Memory matched",
         "lifestyleTask": "Prepare San Pellegrino sparkling water (Confirmed)",
         "accessTask": "Lock seats 1A/1F forward of wing (Confirmed)",
+        "tasks": {
+            "lifestyle": [
+                {
+                    "label": "Prepare San Pellegrino sparkling water",
+                    "status": "done"
+                },
+                {
+                    "label": "Confirm suite with white tea fragrance",
+                    "status": "todo"
+                },
+                {
+                    "label": "Book truffle-themed dinner",
+                    "status": "waiting"
+                }
+            ],
+            "access": [
+                {
+                    "label": "Lock seats 1A/1F forward of wing",
+                    "status": "done"
+                },
+                {
+                    "label": "Arrange Rolls-Royce Phantom pickup",
+                    "status": "todo"
+                },
+                {
+                    "label": "Plan route avoiding congestion",
+                    "status": "waiting"
+                }
+            ],
+            "tech": [
+                {
+                    "label": "Enable end-to-end encrypted network",
+                    "status": "done"
+                },
+                {
+                    "label": "Prepare backup satellite phone",
+                    "status": "todo"
+                },
+                {
+                    "label": "Environmental anti-surveillance scan",
+                    "status": "waiting"
+                }
+            ],
+            "wellness": [
+                {
+                    "label": "Book private trainer session",
+                    "status": "done"
+                },
+                {
+                    "label": "Audit dinner menu calories",
+                    "status": "todo"
+                },
+                {
+                    "label": "Daily morning health monitoring",
+                    "status": "waiting"
+                }
+            ],
+            "concierge": [
+                {
+                    "label": "Obtain opera box tickets",
+                    "status": "done"
+                },
+                {
+                    "label": "Prepare conference souvenirs",
+                    "status": "todo"
+                },
+                {
+                    "label": "Coordinate trilateral meeting time",
+                    "status": "waiting"
+                }
+            ]
+        },
         "defaultTask": "Auto-configured from memory",
         "destination": "Davos, Switzerland",
         "duration": "7 Days · Business Trip",

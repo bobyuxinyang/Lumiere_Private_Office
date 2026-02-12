@@ -126,11 +126,24 @@ export default function Home() {
             await delay(index * 800 + Math.random() * 500);
             updateAgentStatus(agentId, 'working', t('demo.readingProfile'));
 
-            const task = { type: 'checkbox', label: t('demo.defaultTask'), checked: true };
-            if (agentId === 'lifestyle') task.label = t('demo.lifestyleTask');
-            if (agentId === 'access') task.label = t('demo.accessTask');
+            const agentTasks = t(`demo.tasks.${agentId}`);
+            if (Array.isArray(agentTasks)) {
+                agentTasks.forEach(task => {
+                    addFormItem(agentId, {
+                        ...task,
+                        // If status is 'done', it's checked. Custom status handling in render.
+                        checked: task.status === 'done',
+                        type: 'checkbox'
+                    });
+                });
+            } else {
+                // Fallback for missing data
+                const task = { type: 'checkbox', label: t('demo.defaultTask'), checked: true, status: 'done' };
+                if (agentId === 'lifestyle') task.label = t('demo.lifestyleTask');
+                if (agentId === 'access') task.label = t('demo.accessTask');
+                addFormItem(agentId, task);
+            }
 
-            addFormItem(agentId, task);
             updateAgentStatus(agentId, 'done', t('demo.memoryMatched'));
         });
 
@@ -149,7 +162,8 @@ export default function Home() {
 
         updateAgentStatus('lifestyle', 'working', t('demo.analyzingDiet'));
         await delay(1000);
-        addFormItem('lifestyle', { type: 'alert', label: t('demo.dietAdjust'), checked: true });
+        // Alert type task
+        addFormItem('lifestyle', { type: 'alert', label: t('demo.dietAdjust'), checked: true, status: 'done' });
         updateAgentStatus('lifestyle', 'done', t('demo.updateDone'));
 
         const newMemory = {
@@ -197,7 +211,7 @@ export default function Home() {
         await delay(2500);
 
         // 自动解决
-        addFormItem('access', { type: 'alert', label: t('alert.newFlight'), checked: true });
+        addFormItem('access', { type: 'alert', label: t('alert.newFlight'), checked: true, status: 'done' });
         updateAgentStatus('access', 'done', t('alert.solved'));
     };
 
@@ -520,11 +534,12 @@ export default function Home() {
                                                     <div className="ml-7 mt-2 space-y-1.5">
                                                         {tasks.map((task, idx) => (
                                                             <div key={idx} className="flex items-center gap-2.5 text-xs text-slate-600">
-                                                                {task.checked
-                                                                    ? <Check className="w-3 h-3 text-emerald-500 shrink-0" />
-                                                                    : <div className="w-3 h-3 border border-slate-300 shrink-0"></div>
-                                                                }
-                                                                <span className={task.checked ? '' : 'text-slate-400'}>{task.label}</span>
+                                                                {/* Icon based on status */}
+                                                                {task.status === 'done' && <Check className="w-3 h-3 text-emerald-500 shrink-0" />}
+                                                                {task.status === 'waiting' && <Clock className="w-3 h-3 text-amber-500 shrink-0 animate-pulse" />}
+                                                                {(!task.status || task.status === 'todo') && <div className="w-3 h-3 border border-slate-300 shrink-0"></div>}
+
+                                                                <span className={task.status === 'done' ? '' : 'text-slate-400'}>{task.label}</span>
                                                                 {task.type === 'alert' && <span className="text-[8px] font-bold text-red-500 uppercase border border-red-200 px-1.5 py-0.5 ml-auto">{t('demo.updated')}</span>}
                                                             </div>
                                                         ))}

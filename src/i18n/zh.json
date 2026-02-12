@@ -121,6 +121,78 @@
         "memoryMatched": "记忆匹配完成",
         "lifestyleTask": "预备 San Pellegrino 气泡水 (已确认)",
         "accessTask": "锁定 1A/1F 机翼前座位 (已确认)",
+        "tasks": {
+            "lifestyle": [
+                {
+                    "label": "预备 San Pellegrino 气泡水",
+                    "status": "done"
+                },
+                {
+                    "label": "确认包括白茶香氛的套房",
+                    "status": "todo"
+                },
+                {
+                    "label": "预定松露主题晚餐",
+                    "status": "waiting"
+                }
+            ],
+            "access": [
+                {
+                    "label": "锁定 1A/1F 机翼前座位",
+                    "status": "done"
+                },
+                {
+                    "label": "安排劳斯莱斯幻影接机",
+                    "status": "todo"
+                },
+                {
+                    "label": "规划避开拥堵的路线",
+                    "status": "waiting"
+                }
+            ],
+            "tech": [
+                {
+                    "label": "开启端到端加密网络",
+                    "status": "done"
+                },
+                {
+                    "label": "准备备用卫星电话",
+                    "status": "todo"
+                },
+                {
+                    "label": "环境反窃听扫描",
+                    "status": "waiting"
+                }
+            ],
+            "wellness": [
+                {
+                    "label": "预约私人教练时段",
+                    "status": "done"
+                },
+                {
+                    "label": "审核晚餐菜单热量",
+                    "status": "todo"
+                },
+                {
+                    "label": "每日晨间健康监测",
+                    "status": "waiting"
+                }
+            ],
+            "concierge": [
+                {
+                    "label": "获取歌剧院包厢门票",
+                    "status": "done"
+                },
+                {
+                    "label": "准备会议伴手礼",
+                    "status": "todo"
+                },
+                {
+                    "label": "协调三方会议时间",
+                    "status": "waiting"
+                }
+            ]
+        },
         "defaultTask": "根据记忆自动配置",
         "destination": "瑞士 · 达沃斯 (Davos)",
         "duration": "7天 · 公务行程",
