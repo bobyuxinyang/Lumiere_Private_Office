@@ -256,7 +256,10 @@
         "destination": "目的地",
         "duration": "行程",
         "close": "关闭总览",
-        "generatedAt": "生成时间"
+        "generatedAt": "生成时间",
+        "editTask": "编辑任务详情",
+        "taskLabel": "任务内容",
+        "taskStatus": "当前状态"
     },
     "responses": {
         "default": "已收到您的指令，正在安排相关智能体处理...",

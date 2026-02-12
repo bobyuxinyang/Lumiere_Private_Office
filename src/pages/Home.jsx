@@ -73,6 +73,7 @@ export default function Home() {
     // 记忆系统状态
     const [memories, setMemories] = useState(initialMemories);
     const [pendingMemories, setPendingMemories] = useState([]);
+    const [editingTask, setEditingTask] = useState(null); // { agentId, index, task }
 
     const [waitingAgentId, setWaitingAgentId] = useState(null);
     const [agentStates, setAgentStates] = useState(AGENT_IDS.reduce((acc, id) => ({ ...acc, [id]: { status: 'idle', log: t('agents.idle') } }), {}));
@@ -98,10 +99,35 @@ export default function Home() {
         setShowAlert(false);
         setDemoMode(false);
         setDemoPhase(0);
+        setEditingTask(null);
         demoAbortRef.current = false;
     }, [locale]);
 
     useEffect(() => { messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' }); }, [messages]);
+
+    // --- 任务编辑 ---
+    const handleTaskClick = (agentId, task, index) => {
+        setEditingTask({ agentId, index, task: { ...task } });
+    };
+
+    const handleSaveTask = () => {
+        if (!editingTask) return;
+        const { agentId, index, task } = editingTask;
+
+        setFormData(prev => {
+            const newSections = { ...prev.sections };
+            const newTasks = [...(newSections[agentId] || [])];
+
+            // Sync checked state with status
+            if (task.status === 'done') task.checked = true;
+            else task.checked = false;
+
+            newTasks[index] = task;
+            newSections[agentId] = newTasks;
+            return { ...prev, sections: newSections };
+        });
+        setEditingTask(null);
+    };
 
     // --- 记忆操作函数 ---
     const acceptMemory = (memory) => {
@@ -371,6 +397,56 @@ export default function Home() {
     return (
         <div className="flex h-screen bg-[#FDFBF7] text-slate-800 font-sans overflow-hidden selection:bg-amber-100 relative">
 
+            {/* ----------------- Task Edit Modal ----------------- */}
+            {editingTask && (
+                <div className="fixed inset-0 z-[70] flex items-center justify-center bg-black/20 backdrop-blur-sm animate-in fade-in duration-200" onClick={() => setEditingTask(null)}>
+                    <div className="bg-white w-[400px] shadow-2xl rounded-lg border border-slate-200 p-6 space-y-4" onClick={e => e.stopPropagation()}>
+                        <div className="flex justify-between items-center">
+                            <h3 className="font-serif text-lg font-medium text-slate-900">{t('status.editTask')}</h3>
+                            <button onClick={() => setEditingTask(null)}><X className="w-5 h-5 text-slate-400 hover:text-slate-600" /></button>
+                        </div>
+
+                        <div className="space-y-3">
+                            <div>
+                                <label className="text-[10px] font-bold text-slate-400 uppercase tracking-widest block mb-1.5">{t('status.taskLabel')}</label>
+                                <input
+                                    type="text"
+                                    value={editingTask.task.label}
+                                    onChange={(e) => setEditingTask(prev => ({ ...prev, task: { ...prev.task, label: e.target.value } }))}
+                                    className="w-full text-sm border-slate-200 rounded-sm focus:border-amber-500 focus:ring-amber-500/20"
+                                />
+                            </div>
+
+                            <div>
+                                <label className="text-[10px] font-bold text-slate-400 uppercase tracking-widest block mb-1.5">{t('status.taskStatus')}</label>
+                                <div className="flex gap-2">
+                                    {['todo', 'working', 'waiting', 'done'].map((status) => (
+                                        <button
+                                            key={status}
+                                            onClick={() => setEditingTask(prev => ({ ...prev, task: { ...prev.task, status } }))}
+                                            className={`flex-1 py-2 text-xs font-bold uppercase tracking-wider border rounded-sm transition-colors
+                                                ${editingTask.task.status === status
+                                                    ? 'bg-amber-50 border-amber-500 text-amber-700'
+                                                    : 'border-slate-100 text-slate-400 hover:border-slate-300'
+                                                }`}
+                                        >
+                                            {status}
+                                        </button>
+                                    ))}
+                                </div>
+                            </div>
+                        </div>
+
+                        <div className="pt-2 flex justify-end gap-3">
+                            <button onClick={() => setEditingTask(null)} className="px-4 py-2 text-xs font-medium text-slate-500 hover:text-slate-800">{t('modal.undo')}</button>
+                            <button onClick={handleSaveTask} className="px-4 py-2 bg-slate-900 text-white text-xs font-bold uppercase tracking-wider hover:bg-slate-800 shadow-md">
+                                {t('modal.accept')}
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            )}
+
             {/* ----------------- Proactive Alert Banner ----------------- */}
             {showAlert && (
                 <div className="absolute top-6 left-1/2 -translate-x-1/2 z-[60] animate-in slide-in-from-top-4 duration-500 w-[90%] max-w-2xl">
@@ -533,7 +609,11 @@ export default function Home() {
                                                 {tasks.length > 0 && (
                                                     <div className="ml-7 mt-2 space-y-1.5">
                                                         {tasks.map((task, idx) => (
-                                                            <div key={idx} className="flex items-center gap-2.5 text-xs text-slate-600">
+                                                            <div
+                                                                key={idx}
+                                                                className="flex items-center gap-2.5 text-xs text-slate-600 cursor-pointer hover:bg-slate-50/80 p-1 -ml-1 rounded transition-colors"
+                                                                onClick={() => handleTaskClick(agent.id, task, idx)}
+                                                            >
                                                                 {/* Icon based on status */}
                                                                 {task.status === 'done' && <Check className="w-3 h-3 text-emerald-500 shrink-0" />}
                                                                 {task.status === 'waiting' && <Clock className="w-3 h-3 text-amber-500 shrink-0 animate-pulse" />}

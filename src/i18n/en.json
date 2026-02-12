@@ -256,7 +256,10 @@
         "destination": "Destination",
         "duration": "Duration",
         "close": "Close Overview",
-        "generatedAt": "Generated at"
+        "generatedAt": "Generated at",
+        "editTask": "Edit Task Details",
+        "taskLabel": "Task Content",
+        "taskStatus": "Current Status"
     },
     "responses": {
         "default": "Instruction received. Agents are being dispatched.",
